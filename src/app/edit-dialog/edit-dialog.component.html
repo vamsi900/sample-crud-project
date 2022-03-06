@@ -1,0 +1,39 @@
+<div>
+  <h2>{{ data ? "Edit Employee" : "Add Employee" }}</h2>
+  <form #f="ngForm" [formGroup]="myForm" (ngSubmit)="submitDialog()">
+    <div class="row">
+      <div class="form-group col-12">
+        <label for="sort" class="control-label">Name</label>
+        <input class="form-control" type="text" formControlName="name" />
+      </div>
+      <label for="sort" class="control-label">Salary</label>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text">$</span>
+        <input class="form-control" type="number" formControlName="salary" />
+      </div>
+      <div class="form-group col-12">
+        <label for="sort" class="control-label">Email ID</label>
+        <input class="form-control" type="email" formControlName="email" />
+      </div>
+    </div>
+    <div class="submitBtn">
+      <button
+        mat-raised-button
+        class="m-2"
+        type="button"
+        (click)="closeDialog()"
+      >
+        Close
+      </button>
+      <button
+        mat-raised-button
+        class="m-2"
+        color="primary"
+        type="submit"
+        [disabled]="!f.valid"
+      >
+        {{ data ? "Update" : "Add" }}
+      </button>
+    </div>
+  </form>
+</div>
